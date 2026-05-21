@@ -1,15 +1,20 @@
-// import { useState } from 'react'
-// import reactLogo from './assets/react.svg'
-// import viteLogo from './assets/vite.svg'
-// import heroImg from './assets/hero.png'
+import { Routes, Route } from 'react-router-dom'
 import './App.css'
-import MapImg from './assets/MapImg.png'
+import { Home } from './pages/Home'
 
 function App() {
 
   return (
     <>
-      <img src={MapImg}/>
+      <Routes>
+        <Route path='/' element={<Home/>}/>
+
+        {/* element 수정 필요 */}
+        <Route path='/Simulation' element={<Home/>}/>
+        <Route path='/Condition' element={<Home/>}/>
+        <Route path='/MyPage' element={<Home/>}/>
+        <Route path='/Guide' element={<Home/>}/>
+      </Routes>
     </>
   )
 }
