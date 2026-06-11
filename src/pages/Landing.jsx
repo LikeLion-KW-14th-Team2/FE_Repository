@@ -192,26 +192,15 @@ export function Landing() {
 
                         <div style={{
                             display: 'flex',
-                            justifyContent: 'space-between',
                             gap: '22px',
                             width: '100%'
                         }}>
-                            <button style={{
-                                flex: 1,
-                                height: '80px',
-                                backgroundColor: '#eeeeee',
-                                border: 'none',
-                                borderRadius: '20px',
-                                fontSize: '24px',
-                                fontWeight: 'bold',
-                                opacity: '0.5',
-                                cursor: 'pointer'
-                            }}>
-                                비밀번호 찾기
-                            </button>
+                            <div style={{ flex: 1 }}>
+                                <Btn text="비밀번호 찾기" num="3" />
+                            </div>
 
                             <div style={{ flex: 1 }}>
-                                <Btn text="로그인하기" />
+                                <Btn text="로그인하기" num="1" />
                             </div>
                         </div>
                     </div>

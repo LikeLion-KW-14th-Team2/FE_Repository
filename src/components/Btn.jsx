@@ -1,7 +1,20 @@
-import React from 'react';
-import btnImg from '../assets/Button.png'; 
+import React, { useState } from 'react';
+import btn1 from '../assets/Button1.png'; 
+import btn2 from '../assets/Button2.png'; 
+import btn3 from '../assets/Button3.png'; 
 
-export function Btn({ text }) {
+export function Btn({ text, num }) {
+    const [isHovered, setIsHovered] = useState(false);
+
+    let btnImg = btn1;
+    if (num == 2) btnImg = btn2;
+    if (num == 3) btnImg = btn3;
+
+    let currentOpacity = 1;
+    if (isHovered) {
+        currentOpacity = num == 3 ? 0.6 : 0.8;
+    }
+    
     return (
         <button
             style={{
@@ -9,15 +22,21 @@ export function Btn({ text }) {
                 backgroundSize: 'cover',
                 backgroundPosition: 'center',
                 backgroundRepeat: 'no-repeat',
+                opacity: currentOpacity,
 
+                width: '100%',
                 height: '80px',
-                gap: '10px',
                 padding: '10px 40px',
                 border: 'none',
                 borderRadius: '20px',
                 overflow: 'hidden', 
 
-                color: '#ffffff',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+
+
+                color: num == 2 ? '#890B00' : num == 3 ? 'rgba(0, 0, 0, 0.5)' :'#ffffff',
                 fontSize: '24px',
                 fontWeight: '600',
                 textAlign: 'center',
@@ -27,6 +46,8 @@ export function Btn({ text }) {
                 boxShadow: '0 4px 10px rgba(0, 0, 0, 0.15)',
                 transition: 'transform 0.1s ease',
             }}
+            onMouseEnter={() => setIsHovered(true)}
+            onMouseLeave={() => setIsHovered(false)}
         >
             {text}
         </button>
