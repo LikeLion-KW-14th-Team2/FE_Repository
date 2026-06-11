@@ -1,0 +1,37 @@
+.simulation-gauge-box {
+    position: relative;
+    width: 520px;
+    height: 320px;
+
+    margin: 8px auto 16px auto;
+}
+
+.simulation-gauge-svg {
+    width: 520px;
+    height: 320px;
+    display: block;
+}
+
+.simulation-gauge-track {
+    stroke: #eeeeee;
+    stroke-width: 58;
+    stroke-linecap: round;
+    fill: none;
+}
+
+.simulation-gauge-progress {
+    stroke-width: 58;
+    stroke-linecap: round;
+    fill: none;
+}
+
+.simulation-gauge-percent {
+    position: absolute;
+    left: 50%;
+    top: 60%;
+    transform: translate(-50%, -50%);
+
+    font-size: 64px;
+    font-weight: 800;
+    line-height: 1;
+}

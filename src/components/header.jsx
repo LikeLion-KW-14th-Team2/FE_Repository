@@ -21,6 +21,7 @@ export function Header() {
                      alt="로그아웃"
                      onMouseEnter={() => setIsLogoutHover(true)}
                      onMouseLeave={() => setIsLogoutHover(false)}
+                     onClick={() => navigate('/')}
                 />
                 <img className='homeImg' src={isHomeHover ? homeHover : home}
                      alt="홈으로 나가기"

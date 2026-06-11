@@ -1,0 +1,128 @@
+.simulation-page {
+    position: relative;
+
+    width: 100vw;
+    height: 100vh;
+
+    overflow: hidden;
+    background-color: #ffffff;
+}
+
+/* 1층: 흐려진 지도 */
+.simulation-bg-map {
+    position: absolute;
+
+    left: -34.5vw;
+    top: 20.5vh;
+
+    width: 104.2vw;
+    height: auto;
+
+    opacity: 0.45;
+    z-index: 1;
+
+    pointer-events: none;
+}
+
+/* 2층: 찢어진 흰 화면 */
+.simulation-torn {
+    position: absolute;
+
+    left: 31.9vw;
+    top: 0;
+
+    width: 68.1vw;
+    height: 100vh;
+
+    object-fit: fill;
+
+    z-index: 2;
+    pointer-events: none;
+}
+
+/* 3층: 왼쪽 지도 위 졸업 시뮬레이션 깃발 */
+.simulation-flag {
+    position: absolute;
+
+    left: 15.5vw;
+    top: 44vh;
+
+    width: 20vw;
+    height: auto;
+
+    transform: translate(-50%, -50%);
+    z-index: 3;
+}
+
+/* Header */
+.simulation-page .header {
+    z-index: 10;
+}
+
+/* 오른쪽 중앙 내용 */
+.simulation-content {
+    position: absolute;
+
+    left: 67.5vw;
+    top: 45vh;
+
+    width: 25.8vw;
+    height: 27.6vh;
+
+    z-index: 10;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Group79.png 아이콘 */
+.simulation-icon {
+    width: 72px;
+    height: auto;
+    display: block;
+
+    margin-bottom: 28px;
+}
+
+/* 문구 */
+.simulation-text {
+    margin: 0;
+
+    font-size: clamp(20px, 1.6vw, 25px);
+    font-weight: 700;
+    line-height: 1.5;
+
+    text-align: center;
+    color: #444444;
+}
+
+.simulation-text span {
+    color: #8B0000;
+}
+
+/* 메뉴 버튼 2.png */
+.simulation-button {
+    margin-top: 32px;
+
+    padding: 0;
+    border: none;
+    background: transparent;
+
+    cursor: pointer;
+}
+
+.simulation-button img {
+    width: 252px;
+    height: 80px;
+    object-fit: contain;
+    display: block;
+}
+
+.simulation-button:hover {
+    transform: translateY(-1px);
+}
+
+.simulation-button:active {
+    transform: translateY(1px);
+}

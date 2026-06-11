@@ -1,0 +1,130 @@
+.simulation-detail-area {
+    width: 420px;
+    text-align: left;
+
+    align-self: center;
+    margin-top: -18px;
+}
+
+.simulation-detail-top {
+    width: 100%;
+}
+
+.simulation-detail-title {
+    margin: 0 0 22px 0;
+
+    font-size: 22px;
+    font-weight: 800;
+    color: #444444;
+}
+
+.simulation-detail-progress-row {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+}
+
+.simulation-detail-progress {
+    width: 330px;
+    height: 36px;
+    border-radius: 999px;
+    background-color: #eeeeee;
+    overflow: hidden;
+}
+
+.simulation-detail-progress-fill {
+    height: 100%;
+    border-radius: 999px;
+}
+
+.simulation-detail-percent {
+    font-size: 22px;
+    font-weight: 800;
+}
+
+.simulation-detail-divider {
+    width: 100%;
+    height: 1px;
+    background-color: #eeeeee;
+    margin: 52px 0 44px 0;
+}
+
+.simulation-detail-list {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
+.simulation-detail-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.simulation-detail-item h3 {
+    margin: 0 0 8px 0;
+
+    font-size: 21px;
+    font-weight: 800;
+    color: #444444;
+}
+
+.simulation-detail-item p {
+    margin: 0;
+
+    font-size: 17px;
+    font-weight: 600;
+    color: #b5b5b5;
+}
+
+.simulation-status-badge {
+    min-width: 70px;
+    height: 36px;
+    padding: 0 12px;
+    border-radius: 9px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 16px;
+    font-weight: 800;
+}
+
+.simulation-status-badge.done {
+    color: #138dff;
+    background-color: #e0f0ff;
+}
+
+.simulation-status-badge.undone {
+    color: #ff3333;
+    background-color: #ffe8ec;
+}
+
+.simulation-detail-reset-button {
+    width: 400px;
+    height: 70px;
+    padding: 0;
+    margin-top: 60px;
+
+    border: none;
+    background: transparent;
+
+    cursor: pointer;
+    transition: transform 0.1s;
+}
+
+.simulation-detail-reset-button img {
+    width: 100%;
+    height: 100%;
+    object-fit: fill;
+    display: block;
+}
+
+.simulation-detail-reset-button:hover {
+    transform: translateY(-1px);
+}
+
+.simulation-detail-reset-button:active {
+    transform: translateY(1px);
+}

@@ -1,0 +1,50 @@
+.simulation-result-area {
+    width: 100%;
+    text-align: left;
+    margin-top: -20px;
+}
+
+.simulation-result-title {
+    margin: 0 0 26px 0;
+
+    font-size: 26px;
+    font-weight: 800;
+    line-height: 1.35;
+    color: #555555;
+}
+
+.simulation-result-buttons {
+    display: flex;
+    gap: 18px;
+    justify-content: center;
+    align-items: center;
+
+    margin-top: 8px;
+}
+
+.simulation-result-image-button {
+    width: 300px;
+    height: 70px;
+    padding: 0;
+
+    border: none;
+    background: transparent;
+
+    cursor: pointer;
+    transition: transform 0.1s;
+}
+
+.simulation-result-image-button img {
+    width: 100%;
+    height: 100%;
+    object-fit: fill;
+    display: block;
+}
+
+.simulation-result-image-button:hover {
+    transform: translateY(-1px);
+}
+
+.simulation-result-image-button:active {
+    transform: translateY(1px);
+}
