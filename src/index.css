@@ -2,6 +2,9 @@ body {
   margin: 0;
   padding: 0;
   overflow: hidden; 
+  font-family: 'Pretendatd Variable';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 #root {
@@ -12,4 +15,16 @@ body {
   transform-origin: center center; 
   overflow: hidden; 
   text-align: center;
+}
+
+@font-face {
+  font-family: 'Pretendard Variable';
+  font-weight: 400 700;
+  font-style: normal;
+  font-display: swap;
+  src: url('./assets/fonts/PretendardVariable.woff2') format('woff2-variations');
+}
+
+input, button, select, textarea {
+  font-family: 'Pretendard Variable';
 }
