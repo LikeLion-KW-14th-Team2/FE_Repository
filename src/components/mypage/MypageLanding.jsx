@@ -1,5 +1,5 @@
 import { Btn } from "../Btn";
-import mypage_img from '../../assets/mypage_img.png';
+import mypage_img from '../../assets/MyPage_img.png';
 import './MypageLanding.css'
 
 export function MypageLanding({ onNavigateToMain }) {
