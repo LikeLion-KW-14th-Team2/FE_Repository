@@ -9,6 +9,7 @@ import './MyPage.css'
 
 import { MypageLanding } from "../components/mypage/MypageLanding";
 import { MypageMain } from "../components/mypage/MypageMain";
+import { MyPageCourse } from "../components/mypage/MyPageCourse";
 
 
 export function MyPage() {
@@ -31,10 +32,14 @@ export function MyPage() {
             <img className="torn" src={torn} />
 
             <div className="right-section">
-                {view === 'landing' ? (
+                {view === 'landing' && (
                     <MypageLanding onNavigateToMain={() => setView('main')} />
-                ) : (
-                    <MypageMain/>
+                )}
+                {view === 'main' && (
+                    <MypageMain onNavigateToCourse={() => setView('course')} />
+                )}
+                {view === 'course' && (
+                    <MyPageCourse/>
                 )}
             </div>   
         </div>

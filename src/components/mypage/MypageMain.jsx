@@ -3,7 +3,7 @@ import { Btn } from '../Btn'
 import { MypageCard } from './MypageCard'
 import './MypageMain.css'
 
-export function MypageMain() {
+export function MypageMain({ onNavigateToCourse }) {
     const [hoveredId, setHoveredId] = useState(null);
 
     const userCards = [
@@ -43,7 +43,7 @@ export function MypageMain() {
             </div>
             
             <div className='mypage-button'>
-                <Btn text="수강 내역 조회하기" num="3" />
+                <Btn text="수강 내역 조회하기" num="3" onClick={onNavigateToCourse}/>
                 <Btn text="KLAS 학사정보 바로가기" num="1" />
             </div>    
         </div>
