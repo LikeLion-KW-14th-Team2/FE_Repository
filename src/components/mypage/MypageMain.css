@@ -1,0 +1,29 @@
+.mypage-main-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.cards-wrapper {
+  position: relative;
+  width: 850px; 
+  height: 800px;
+}
+
+.card-positioner {
+  position: absolute;
+  transform-origin: center center;
+  transition: transform 0.25s ease-out;
+}
+
+.mypage-button {
+    width: auto;
+    position: absolute;
+    bottom: 80px;
+    display: flex;
+    flex-direction: row;
+    gap: 20px
+}

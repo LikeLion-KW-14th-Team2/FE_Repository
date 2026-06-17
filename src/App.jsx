@@ -6,6 +6,7 @@ import { ConditionMain } from './pages/ConditionMain'
 import { Simulation } from './pages/Simulation'
 import { SimulationMain } from './pages/SimulationMain'
 import { Landing } from './pages/Landing'
+import { MyPage } from './pages/MyPage'
 
 function App() {
 
@@ -20,7 +21,7 @@ function App() {
         <Route path='/SimulationMain' element={<SimulationMain />} />
         <Route path='/Condition' element={<Condition/>}/>
         <Route path='/ConditionMain' element={<ConditionMain />} />
-        <Route path='/MyPage' element={<Home/>}/>
+        <Route path='/MyPage' element={<MyPage/>}/>
         <Route path='/Guide' element={<Home/>}/>
       </Routes>
     </>
