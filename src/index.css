@@ -15,6 +15,11 @@ body {
   transform-origin: center center; 
   overflow: hidden; 
   text-align: center;
+
+  -webkit-user-select: none; /* Safari, Chrome, Opera 등 웹킷 기반 브라우저 */
+  -moz-user-select: none;    /* Firefox */
+  -ms-user-select: none;     /* IE / Edge 익스플로러 */
+  user-select: none;
 }
 
 @font-face {
