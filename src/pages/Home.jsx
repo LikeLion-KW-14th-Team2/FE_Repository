@@ -12,14 +12,14 @@ import { useState } from 'react'
 export function Home() {
     const navigate = useNavigate();
 
-    const [isFlagHovered, setIsFlagHovered] = useState(false);
+    const [isFlagHovered, setIsFlagHovered] = useState(null);
 
     const flags = [
         //{ id: 1, top: '202px', left: '262px', name: '학사모운틴' },
-        { id: 2, top: '33%', left: '61%', name: '졸업시뮬레이션', src: Simulation_Flag, path: '/Simulation', width: '279px' },
-        { id: 3, top: '34.5%', left: '39%', name: '졸업요건 조회', src: Condition_Flag, path: '/Condition', width: '253px' },
-        { id: 4, top: '48%', left: '55.5%', name: '마이페이지', src: MyPage_Flag, path: '/MyPage', width: '187px'},
-        { id: 5, top: '72.5%', left: '62.5%', name: '가이드', src: Guide_Flag, path: '/Guide', width: '353px' }
+        { id: 2, top: '30%', left: '61%', name: '졸업시뮬레이션', src: Simulation_Flag, path: '/Simulation', width: '279px' },
+        { id: 3, top: '31%', left: '39%', name: '졸업요건 조회', src: Condition_Flag, path: '/Condition', width: '253px' },
+        { id: 4, top: '44.5%', left: '55%', name: '마이페이지', src: MyPage_Flag, path: '/MyPage', width: '187px'},
+        { id: 5, top: '69.5%', left: '62.5%', name: '가이드', src: Guide_Flag, path: '/Guide', width: '353px' }
     ];
 
     return (
@@ -28,13 +28,16 @@ export function Home() {
                 <Header/>
                 
                 <div className='map-wrapper'>
-                    <img className={`map-bg ${isFlagHovered ? 'hovered' : ''}`} src={MapImg} alt="배경 지도" />
+                    <img className={`map-bg ${isFlagHovered  != null ? 'hovered' : ''}`} src={MapImg} alt="배경 지도" />
 
                     {/* 깃발을 클릭 가능한 버튼 태그로 생성 */}
-                    {flags.map((flag) => (
+                    {flags.map((flag) => {
+                        const isCurrentHovered = isFlagHovered == flag.id;
+
+                        return (
                         <button 
                             key={flag.id}
-                            className='flag-button' 
+                            className={`flag-button ${isCurrentHovered ? 'active' : ''}`}
                             style={{
                                 top: flag.top,
                                 left: flag.left
@@ -42,12 +45,12 @@ export function Home() {
                             onClick={() => navigate(flag.path)} // 클릭 시 해당 경로로 이동
                             aria-label={`${flag.name} 페이지로 이동`}
 
-                            onMouseEnter={() => setIsFlagHovered(true)}
-                            onMouseLeave={() => setIsFlagHovered(false)}
+                            onMouseEnter={() => setIsFlagHovered(flag.id)}
+                            onMouseLeave={() => setIsFlagHovered(null)}
                         >
-                            <img src={flag.src} alt={flag.name} style={{width:flag.width}}/>
+                            <img className='flag-img' src={flag.src} alt={flag.name} style={{width:flag.width}}/>
                         </button>
-                    ))}   
+                    );})}   
                 </div>
             </div>
         </>
