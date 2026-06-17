@@ -27,7 +27,7 @@ export function Header() {
                      alt="홈으로 나가기"
                      onMouseEnter={() => setIsHomeHover(true)}
                      onMouseLeave={() => setIsHomeHover(false)}
-                     onClick={() => navigate('/')}
+                     onClick={() => navigate('/Home')}
                 />
             </div>
         </>
