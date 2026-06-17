@@ -41,6 +41,7 @@ export function Btn({ text, num }) {
                 fontWeight: '600',
                 textAlign: 'center',
                 lineHeight: '1.4',
+                whiteSpace: 'nowrap',
 
                 cursor: 'pointer',
                 boxShadow: '0 4px 10px rgba(0, 0, 0, 0.15)',
