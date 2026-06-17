@@ -57,6 +57,11 @@ export function Landing() {
         }
     };
 
+    const handleFindPw = () => {
+        const targetUrl = "https://klas.kw.ac.kr/usr/cmn/login/modal/UserFindPwdPage.do";
+        window.open(targetUrl, '_blank');
+    }
+
     return (
         <>
         <div style={{
@@ -236,7 +241,7 @@ export function Landing() {
                             gap: '22px',
                             width: '100%'
                         }}>
-                            <div style={{ flex: 1 }}>
+                            <div style={{ flex: 1 }} onClick={handleFindPw}>
                                 <Btn text="비밀번호 찾기" num="3" />
                             </div>
 
