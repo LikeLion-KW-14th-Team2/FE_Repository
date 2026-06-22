@@ -1,0 +1,39 @@
+.guide-caption-bar {
+  position: absolute;
+  left: 50%;
+  bottom: 6vh;
+  transform: translateX(-50%);
+  z-index: 40;
+ 
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+ 
+.guide-caption-arrow {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: none;
+  background-color: rgba(0, 0, 0, 0.05);
+ 
+  font-size: 18px;
+  color: #555555;
+  cursor: pointer;
+}
+ 
+.guide-caption-text {
+  margin: 0;
+  padding: 14px 28px;
+  border-radius: 30px;
+  background-color: #f7f4ee;
+ 
+  font-size: 16px;
+  font-weight: 700;
+  color: #555555;
+  white-space: nowrap;
+}
+ 
+.guide-caption-highlight {
+  color: #890b00;
+}
