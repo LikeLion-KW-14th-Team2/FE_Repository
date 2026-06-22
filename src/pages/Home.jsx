@@ -3,10 +3,10 @@ import { Header } from '../components/header'
 import { useNavigate } from 'react-router-dom'
 
 import MapImg from '../assets/Map.png'
-import Simulation_Flag from '../assets/Simulation_Flag.png'
-import Condition_Flag from '../assets/Condition_Flag.png'
-import Guide_Flag from '../assets/Guide_Flag.png'
-import MyPage_Flag from '../assets/MyPage_Flag.png'
+import Simulation_Flag from '../assets/flags/Simulation_Flag.png'
+import Condition_Flag from '../assets/flags/Condition_Flag.png'
+import Guide_Flag from '../assets/flags/Guide_Flag.png'
+import MyPage_Flag from '../assets/flags/MyPage_Flag.png'
 import { useState } from 'react'
 
 export function Home() {

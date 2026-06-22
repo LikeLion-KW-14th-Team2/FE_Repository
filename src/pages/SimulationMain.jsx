@@ -8,7 +8,7 @@ import { SimulationSummary } from '../components/simulation/SimulationSummary'
 import { SimulationDetail } from '../components/simulation/SimulationDetail'
 
 import map from '../assets/Map.png'
-import simulationFlag from '../assets/Simulation_Flag.png'
+import simulationFlag from '../assets/flags/Simulation_Flag.png'
 import torn from '../assets/Group 209 1.png'
 import menuButton3 from '../assets/메뉴 버튼 3.png'
 import menuButton4 from '../assets/메뉴 버튼 4.png'

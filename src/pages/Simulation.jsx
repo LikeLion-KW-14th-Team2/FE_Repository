@@ -3,7 +3,7 @@ import { Header } from '../components/header'
 import { useNavigate } from 'react-router-dom'
 
 import map from '../assets/Map.png'
-import simulationFlag from '../assets/Simulation_Flag.png'
+import simulationFlag from '../assets/flags/Simulation_Flag.png'
 import torn from '../assets/Group 209 1.png'
 import group79 from '../assets/Group 79.png'
 import menuButton2 from '../assets/메뉴 버튼 2.png'
