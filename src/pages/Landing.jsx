@@ -137,17 +137,19 @@ export function Landing() {
                     zIndex: 2,
                     cursor: isLoginStep ? 'default' : 'pointer',
 
-                    bottom: isLoginStep ? '50%' : '0px',
+                    bottom: isLoginStep ? '' : '-125px',
+                    top: isLoginStep? '50%' : '',
 
                     transform: isLoginStep 
-                        ? 'translateY(50%)' 
+                        ? 'translateY(-50%)' 
                         : isHovered 
                             ? 'translateY(600px)' 
                             : 'translateY(650px)',
                     
                     transition: 'all 0.75s cubic-bezier(0.25, 1, 0.5, 1)', 
                     
-                    width: isLoginStep ? '65%' : '1000px',
+                    width: isLoginStep ? '1300px' : '1200px',
+                    padding: isLoginStep? '10%' : '',
 
                     filter: isLoginStep ? 'blur(0.2vw)' : 'none',
                     opacity: isLoginStep ? 0.25 : 1
