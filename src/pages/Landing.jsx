@@ -137,26 +137,33 @@ export function Landing() {
                     zIndex: 2,
                     cursor: isLoginStep ? 'default' : 'pointer',
 
-                    bottom: isLoginStep ? '' : '-125px',
-                    top: isLoginStep? '50%' : '',
+                    bottom: isLoginStep ? 'auto' : '-125px',
 
                     transform: isLoginStep 
-                        ? 'translateY(-50%)' 
+                        ? 'translateY(0%)' 
                         : isHovered 
                             ? 'translateY(600px)' 
                             : 'translateY(650px)',
                     
                     transition: 'all 0.75s cubic-bezier(0.25, 1, 0.5, 1)', 
                     
-                    width: isLoginStep ? '1300px' : '1200px',
-                    padding: isLoginStep? '10%' : '',
+                    width: isLoginStep ? 'auto' : '1200px',
+                    height: isLoginStep ? '100%' : 'auto',
 
                     filter: isLoginStep ? 'blur(0.2vw)' : 'none',
                     opacity: isLoginStep ? 0.25 : 1
                 }}
             >
-                <img src={Map} style={{ width: '100%', display: 'block' }} alt="보물지도"/>            
-            </div>    
+                <img 
+                    src={Map} 
+                    style={{ 
+                        width: isLoginStep ? 'auto' : '100%', 
+                        height: isLoginStep ? '100%' : 'auto', 
+                        display: 'block' 
+                    }} 
+                    alt="보물지도"
+                />            
+            </div>
 
             {/*로그인 모달*/}
             {isModalOpen && (

@@ -14,14 +14,13 @@
   z-index: 1;
 }
 
-/* [핵심] 지도와 깃발의 좌표 스케일을 일정하게 가두는 고정 비율 서브 박스 */
 .map-fixed-container {
   position: absolute;
   bottom: 0;
-  left: -850px; /* 피그마 3번 사진처럼 지도가 반쯤 잘려 보이도록 좌측 여백 차감 */
-  transform: translateY(-150px); /* 화면 세로 높이에 관계없이 항상 세로 정중앙 고정 */
+  left: -850px;
+  transform: translateY(-150px);
   
-  width: 1500px; /* 지도의 가로 스펙을 명확한 px로 고정 */
+  width: 1500px;
   scale: calc(1500/1300);
 }
  
@@ -34,21 +33,21 @@
   pointer-events: none;
 }
  
-/* 왼쪽 '가이드' 깃발: 이제 %가 아니라 고정된 지도 박스 기준으로 정밀하게 밀착 */
+/* 왼쪽 깃발 */
 .guide-landing-flag {
   position: absolute;
   left: 76%; 
-  top: 67.5%;
+  top: 67%;
   
   width: 407px;
   height: auto;
   
   z-index: 3;
   pointer-events: none;
-  transform: translate(-50%, -50%); /* 중심점 정렬 */
+  transform: translate(-50%, -50%);
 }
  
-/* 찢어진 흰 화면 */
+/* 찢어진 화면 */
 .guide-landing-torn {
   position: absolute;
   top: 0;

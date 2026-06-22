@@ -12,9 +12,8 @@
   left: 50%;
   transform: translate(-50%, -50%);
   
-  min-width: 1300px;
-  /* width: 85%; */
-  height: auto;
+  height: 100vh;
+  width: auto;
   aspect-ratio: 1440 / 1024;
 }
 

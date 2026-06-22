@@ -9,7 +9,8 @@
  
 .guide-map-wrapper {
   position: relative;
-  width: 65%;
+  height: 100vh;
+  width: auto;
   aspect-ratio: 1440 / 1024;
 }
  
