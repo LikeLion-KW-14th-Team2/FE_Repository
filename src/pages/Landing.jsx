@@ -47,7 +47,7 @@ export function Landing() {
 
             // 일반 로그인 시 홈으로 이동
             // 최초 로그인 시 가이드 이동 구현 필요
-            navigate('/Home'); 
+            navigate('/Guide'); 
             
         } catch (error) {
             console.error("로그인 중 에러 발생:", error);
