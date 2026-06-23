@@ -15,15 +15,17 @@ export function GuideMapPoint({ point, mode = 'plain', isParentHovered, onFlagMo
       <div className="guide-map-point-hitzone" />
         {showFlagLayout && (
           <>
+            {point.flagSrc && (
               <div className="guide-flag-image-box">
-                  <img src={point.flagSrc} alt={point.name} className="guide-flag-asset" />
+                <img src={point.flagSrc} alt={point.name} className="guide-flag-asset" />
               </div>
+            )}
 
-              {point.description && (
-                  <p className="guide-flag-description-box">
-                  {point.description}
-                  </p>
-              )}
+            {point.description && (
+              <p className="guide-flag-description-box">
+                {point.description}
+              </p>
+            )}
           </>
         )}
  

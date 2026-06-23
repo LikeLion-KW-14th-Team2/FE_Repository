@@ -1,7 +1,7 @@
 .guide-caption-bar {
   position: absolute;
   left: 50%;
-  bottom: 6vh;
+  bottom: 2vh;
   transform: translateX(-50%);
   z-index: 40;
  
@@ -15,7 +15,8 @@
   height: 40px;
   border-radius: 50%;
   border: none;
-  background-color: rgba(0, 0, 0, 0.05);
+  background-color: rgba(0, 0, 0, 0.03);
+  backdrop-filter: blur(50px);
  
   font-size: 18px;
   color: #555555;
@@ -26,7 +27,8 @@
   margin: 0;
   padding: 14px 28px;
   border-radius: 30px;
-  background-color: #f7f4ee;
+  background-color: rgba(0, 0, 0, 0.03);
+  backdrop-filter: blur(50px);
  
   font-size: 16px;
   font-weight: 700;

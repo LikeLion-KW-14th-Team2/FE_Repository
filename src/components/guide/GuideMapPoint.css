@@ -35,7 +35,6 @@
   display: block;
 }
 
-/* [디자인 일치] 깃발 하단에 독립적으로 노출되는 빨간색 설명 문구 */
 .guide-flag-description-box {
   position: absolute;
 
@@ -49,7 +48,8 @@
   font-size: 25px;
   font-weight: 700;
   line-height: 1.4;
-  white-space: nowrap; 
+  white-space: pre-line;
+  width: max-content; 
   
   text-shadow: 0 1px 2px rgba(255, 255, 255, 0.9);
   pointer-events: none;

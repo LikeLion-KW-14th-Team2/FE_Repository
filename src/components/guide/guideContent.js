@@ -7,7 +7,7 @@ export const MAP_POINTS = [
   {
     id: 'condition',
     name: '졸업요건 조회',
-    description: '학번별 졸업요건을 한눈에 확인할 수 있는 구역이에요',
+    description: '학번/학부별 졸업요건을 조회할 수 있어요',
     top: '31.5%',
     left: '39%',
     flagSrc : Condition_Flag,
@@ -15,7 +15,7 @@ export const MAP_POINTS = [
   {
     id: 'simulation',
     name: '졸업 시뮬레이션',
-    description: '목표 학점 달성 가능성을 시뮬레이션 해보는 구역이에요',
+    description: '다음 학기 과목 수, 목표 평점 등을 바탕으로\n졸업 가능 여부를 확인할 수 있어요',
     top: '30.5%',
     left: '61%',
     flagSrc : Simulation_Flag,
@@ -23,7 +23,7 @@ export const MAP_POINTS = [
   {
     id: 'mypage',
     name: '마이페이지',
-    description: '내 학적 정보와 수강 내역을 확인하는 구역이에요',
+    description: '나의 개인정보 및 학사정보를 조회할 수 있어요',
     top: '45%',
     left: '55.2%',
     flagSrc : MyPage_Flag,
@@ -31,7 +31,7 @@ export const MAP_POINTS = [
   {
     id: 'guide',
     name: '가이드',
-    description: '지금 보고 있는 가이드 구역이에요',
+    description: '현재 머무르고 있는 곳이에요',
     top: '69.5%',
     left: '62.5%',
     flagSrc : Guide_Flag,
@@ -39,8 +39,8 @@ export const MAP_POINTS = [
   {
     id: 'mountain',
     name: '학사모운틴',
-    description: '졸업장을 찾을 수 있는 최종 목적지예요',
-    top: '15%',
+    description: '학사모운틴',
+    top: '11.5%',
     left: '48%',
   },
 ]
@@ -88,7 +88,7 @@ export const GUIDE_STEPS = [
   },
   {
     id: 2,
-    type: 'card',
+    type: 'map',
     cards: UNI_CARD_PREVIEW,
     caption: [
       { text: '학점에 따라 외형이 바뀌는 ' },
