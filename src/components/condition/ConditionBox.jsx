@@ -29,7 +29,6 @@ export function ConditionBox() {
                 className='condition-box-result'
                 data-year={selectedYear}
             >
-                {/* 나중에 selectedYear별 졸업요건 내용 표시 */}
             </div>
         </section>
     )

@@ -11,16 +11,6 @@
 .condition-layout-map {
     position: absolute;
 
-    /*
-        피그마 기준
-        x = -497
-        y = 210
-        w = 1500
-        h = 1069.7
-        기준 프레임 = 1440 x 1024
-
-        화면 높이를 기준으로 동일한 비율로 확대
-    */
     left: -48.54vh;
     top: 20.51vh;
 
@@ -33,16 +23,6 @@
     pointer-events: none;
 }
 
-/*
-    Group 209 1.png 원본: 1130 x 1024
-
-    이미지 왼쪽에 투명/그림자 영역이 포함되어 있어서
-    찢어진 경계가 아니라 이미지 전체 시작점을 기준으로 둬야 함.
-
-    디자인 기준:
-    이미지 시작 x = 310px
-    이미지 전체 폭 = 1130px
-*/
 .condition-layout-torn {
     position: absolute;
 

@@ -24,6 +24,7 @@ export function ConditionLayout({ children }) {
             <img
                 className='condition-layout-flag'
                 src={conditionFlag}
+                
                 alt='졸업요건 조회'
             />
 
