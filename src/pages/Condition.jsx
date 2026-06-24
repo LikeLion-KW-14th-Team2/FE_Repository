@@ -3,10 +3,15 @@ import { Btn } from '../components/Btn'
 import { ConditionLayout } from '../components/condition/ConditionLayout'
 import { useNavigate } from 'react-router-dom'
 
-import conditionImg from '../assets/condition_img.png' 
+import conditionImg from '../assets/condition_img.png'
 
 export function Condition() {
     const navigate = useNavigate()
+
+    /* 졸업요건 조회 화면으로 이동 */
+    const handleConditionClick = () => {
+        navigate('/ConditionMain')
+    }
 
     return (
         <ConditionLayout>
@@ -15,7 +20,6 @@ export function Condition() {
                     <img
                         className='condition-icon'
                         src={conditionImg}
-                        
                         alt='졸업요건 아이콘'
                     />
 
@@ -28,7 +32,7 @@ export function Condition() {
                         <Btn
                             text='졸업요건 조회하기'
                             num='1'
-                            onClick={() => navigate('/ConditionMain')}
+                            onClick={handleConditionClick}
                         />
                     </div>
                 </div>

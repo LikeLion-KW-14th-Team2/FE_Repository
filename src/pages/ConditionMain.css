@@ -1,10 +1,10 @@
+/* 졸업요건 조회 영역 */
 .condition-main-panel {
-    position: absolute;
+  position: absolute;
 
-    left: 40.2778vw;
-    top: 19.5313vh;
-    right: 4.1667vw;
+  left: 40.2778vw;
+  top: 19.5313vh;
+  right: 4.1667vw;
 
-    
-    z-index: 10;
+  z-index: 10;
 }
