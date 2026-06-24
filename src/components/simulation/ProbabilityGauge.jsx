@@ -35,6 +35,7 @@ export function ProbabilityGauge({ probability }) {
                 alt={`${probability}% 졸업 가능 확률`}
             />
 
+
             <div className='simulation-gauge-percent'>
                 {probability}%
             </div>

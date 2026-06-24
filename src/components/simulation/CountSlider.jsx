@@ -3,11 +3,6 @@ import './CountSlider.css'
 export function CountSlider({ label, value, onChange }) {
     const max = 6
 
-    /*
-        Figma 기준:
-        전체 320px, 숫자 원 40px
-        숫자 원 중심은 20px ~ 300px 범위에서 이동
-    */
     const badgeSize = 40
     const sliderWidth = 320
 

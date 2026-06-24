@@ -100,6 +100,7 @@ export function SimulationInput({
                             className='simulation-text-input'
                             type='text'
                             placeholder='재수강 과목을 입력하세요'
+                            
                             value={courseQuery}
                             onChange={(event) => {
                                 setCourseQuery(event.target.value)

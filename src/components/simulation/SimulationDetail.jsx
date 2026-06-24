@@ -126,6 +126,7 @@ export function SimulationDetail({ probability, onReset }) {
                 <Btn
                     text='시뮬레이션 다시 입력하기'
                     num='1'
+                    
                     onClick={onReset}
                 />
             </div>

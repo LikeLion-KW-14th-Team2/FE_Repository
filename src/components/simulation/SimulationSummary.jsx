@@ -32,6 +32,7 @@ export function SimulationSummary({
                     <Btn
                         text='상세 결과 조회하기'
                         num='1'
+                        
                         onClick={onDetail}
                     />
                 </div>

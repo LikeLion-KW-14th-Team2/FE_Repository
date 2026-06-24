@@ -174,10 +174,6 @@
     width: 100%;
 }
 
-/*
-    SimulationSummary와 같은 기준:
-    simulation-right-panel 하단에서 70px 위
-*/
 .simulation-bottom-buttons {
     position: absolute;
 

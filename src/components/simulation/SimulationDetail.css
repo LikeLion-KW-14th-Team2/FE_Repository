@@ -1,8 +1,5 @@
 .simulation-detail-area {
-    /*
-        피그마 원본 기준: 1440 × 1024
-        화면 높이에 맞춰 카드·내용·버튼을 하나의 비율로 축소한다.
-    */
+
     --detail-scale: calc(100vh / 1024px);
 
     position: relative;
@@ -13,9 +10,6 @@
 
     box-sizing: border-box;
 
-    /*
-        원본 피그마에서 카드 시작점: y = 150px
-    */
     margin: calc(14.6484375vh - 25.3vh) auto 0;
 
     transform: scale(var(--detail-scale));
@@ -32,7 +26,7 @@
     flex-direction: column;
 }
 
-/* 졸업 가능 확률 영역: 450 × 90 */
+/* 졸업 가능 확률*/
 .simulation-detail-top {
     width: 450px;
     height: 90px;
@@ -50,7 +44,6 @@
     color: rgba(0, 0, 0, 0.75);
 }
 
-/* 바 370px + 간격 20px + 퍼센트 영역 60px = 450px */
 .simulation-detail-progress-row {
     display: flex;
     align-items: center;
@@ -105,10 +98,6 @@
     text-align: right;
 }
 
-/*
-    확률 영역과 목록 사이 전체 120px.
-    중앙 60px 지점에 실제 구분선을 배치한다.
-*/
 .simulation-detail-divider {
     position: relative;
 
@@ -131,7 +120,6 @@
     background-color: #eeeeee;
 }
 
-/* 목록 전체: 450 × 360 */
 .simulation-detail-list {
     width: 450px;
     height: 360px;
@@ -143,12 +131,6 @@
     gap: 40px;
 }
 
-/*
-    한 행:
-    텍스트 250px
-    텍스트와 상태 사이 여백 120px
-    상태 뱃지 80px
-*/
 .simulation-detail-item {
     width: 450px;
     height: 60px;
@@ -190,7 +172,6 @@
     color: rgba(0, 0, 0, 0.25);
 }
 
-/* 상태 뱃지: 80 × 40, top 10px */
 .simulation-status-badge {
     grid-column: 3;
 
@@ -224,10 +205,6 @@
     background-color: rgba(255, 56, 60, 0.1);
 }
 
-/*
-    바깥 570 × 690 영역 하단에서 24px 아래.
-    내부 콘텐츠 하단 기준으로는 60 + 24 = 84px 아래.
-*/
 .simulation-detail-reset-button {
     position: absolute;
 

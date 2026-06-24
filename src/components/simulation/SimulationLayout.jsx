@@ -12,6 +12,7 @@ export function SimulationLayout({ children }) {
             <img
                 className='simulation-layout-map'
                 src={map}
+                
                 alt='배경 지도'
             />
 
