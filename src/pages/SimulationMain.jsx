@@ -16,7 +16,7 @@ export function SimulationMain() {
     const [targetGpa, setTargetGpa] = useState('')
 
     const [screen, setScreen] = useState('input')
-    const [probability, setProbability] = useState(0)
+    const [probability, setProbability] = useState(20)
 
     const calculateProbability = () => {
         const gpa = Number(targetGpa)
@@ -34,7 +34,11 @@ export function SimulationMain() {
             score += 10
         }
 
-        return Math.min(100, Math.max(0, Math.round(score)))
+        // 계산 점수를 가장 가까운 게이지 단계로 변환
+        if (score < 30) return 20
+        if (score < 50) return 40
+        if (score < 70) return 60
+        return 80
     }
 
     const handleStartSimulation = () => {
@@ -59,7 +63,6 @@ export function SimulationMain() {
                             retakeCourses={retakeCourses}
                             setRetakeCourses={setRetakeCourses}
                             targetGpa={targetGpa}
-                            
                             setTargetGpa={setTargetGpa}
                             onStartSimulation={handleStartSimulation}
                             onGoToMyPage={() => navigate('/MyPage')}
