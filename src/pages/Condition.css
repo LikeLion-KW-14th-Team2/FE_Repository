@@ -1,33 +1,4 @@
-.condition-page {
-    position: relative;
-
-    width: 100vw;
-    height: 100vh;
-
-    overflow: hidden;
-    background-color: #ffffff;
-}
-
-/* 1층: 흐려진 지도 */
-/* 피그마 기준: x=-497, y=210, w=1500 */
-.condition-bg-map {
-    position: absolute;
-
-    left: -34.5vw;
-    top: 20.5vh;
-
-    width: 104.2vw;
-    height: auto;
-
-    opacity: 0.45;
-    z-index: 1;
-
-    pointer-events: none;
-}
-
-/* 2층: 찢어진 흰 화면 */
-/* 피그마 기준: left=460px / 1440px = 약 31.9vw */
-.condition-torn {
+.condition-right-panel {
     position: absolute;
 
     left: 31.9vw;
@@ -36,108 +7,69 @@
     width: 68.1vw;
     height: 100vh;
 
-    object-fit: fill;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
-    z-index: 2;
-    pointer-events: none;
-}
+    padding-left: min(40px, 2.8vw);
 
-/* 3층: 왼쪽 지도 위 졸업요건 조회 깃발 */
-.condition-flag {
-    position: absolute;
+    box-sizing: border-box;
 
-    left: 16.7vw;
-    top: 40vh;
-
-    width: 17.6vw;
-    height: auto;
-
-    transform: translate(-50%, -50%);
-    z-index: 3;
-}
-
-/* Header는 기존 header.css는 그대로 두고, Condition 안에서만 위로 */
-.condition-page .header {
     z-index: 10;
 }
 
-/* 5층: 오른쪽 중앙 내용 묶음 */
-/* 피그마 기준: x=784, y=371, w=372, h=283 */
 .condition-content {
-    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 
-    left: 54.4vw;
-    top: 36.2vh;
+    width: 372px;
 
-    width: 25.8vw;
-    height: 27.6vh;
+    /*
+        아이콘 → 문구 → 버튼 사이의 피그마 간격
+    */
+    gap: 40px;
 
-    z-index: 10;
+    flex: 0 0 auto;
 }
 
-/* 아이콘 */
-/* content 내부 기준: x=160, y=0 */
 .condition-icon {
-    position: absolute;
-
-    left: 43%;
-    top: 0;
-
-    width: 3.6vw;
-    height: auto;
+    width: 52px;
+    height: 60px;
 
     object-fit: contain;
     display: block;
 }
 
-/* 문구 */
-/* content 내부 기준: y=100 */
+/*
+    Pretendard Variable
+    30px / 700 / line-height 140%
+*/
 .condition-text {
-    position: absolute;
-
-    left: 0;
-    top: 35%;
-
     width: 100%;
-
     margin: 0;
 
-    font-size: 1.5vw;
+    font-size: 30px;
     font-weight: 700;
-    line-height: 1.45;
+    line-height: 1.4;
+    letter-spacing: 0;
 
     text-align: center;
-    color: #333333;
+    color: rgba(0, 0, 0, 0.75);
 }
 
 .condition-text span {
-    color: #8B0000;
+    color: #a30d00;
 }
 
-/* 이미지 버튼 */
-/* 피그마 기준: w=252, h=80 */
 .condition-button {
-    position: absolute;
-
-    left: 16.1%;
-    top: 71.7%;
-
-    width: 17.5vw;
-    height: auto;
-
-    padding: 0;
-    border: none;
-    background: transparent;
-
-    cursor: pointer;
+    width: 252px;
+    height: 80px;
 }
 
-.condition-button img {
+.condition-button > button {
     width: 100%;
-    height: auto;
-
-    object-fit: contain;
-    display: block;
+    height: 80px;
 }
 
 .condition-button:hover {

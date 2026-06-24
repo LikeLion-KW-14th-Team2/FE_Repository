@@ -1,31 +1,4 @@
-.simulation-page {
-    position: relative;
-
-    width: 100vw;
-    height: 100vh;
-
-    overflow: hidden;
-    background-color: #ffffff;
-}
-
-/* 1층: 흐려진 지도 */
-.simulation-bg-map {
-    position: absolute;
-
-    left: -34.5vw;
-    top: 20.5vh;
-
-    width: 104.2vw;
-    height: auto;
-
-    opacity: 0.45;
-    z-index: 1;
-
-    pointer-events: none;
-}
-
-/* 2층: 찢어진 흰 화면 */
-.simulation-torn {
+.simulation-landing-panel {
     position: absolute;
 
     left: 31.9vw;
@@ -34,89 +7,70 @@
     width: 68.1vw;
     height: 100vh;
 
-    object-fit: fill;
-
-    z-index: 2;
-    pointer-events: none;
-}
-
-/* 3층: 왼쪽 지도 위 졸업 시뮬레이션 깃발 */
-.simulation-flag {
-    position: absolute;
-
-    left: 15.5vw;
-    top: 44vh;
-
-    width: 20vw;
-    height: auto;
-
-    transform: translate(-50%, -50%);
-    z-index: 3;
-}
-
-/* Header */
-.simulation-page .header {
-    z-index: 10;
-}
-
-/* 오른쪽 중앙 내용 */
-.simulation-content {
-    position: absolute;
-
-    left: 67.5vw;
-    top: 45vh;
-
-    width: 25.8vw;
-    height: 27.6vh;
-
     z-index: 10;
 
     display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding-left: min(40px, 2.8vw);
+
+    box-sizing: border-box;
+}
+
+/*
+    아이콘 → 문구 → 버튼을 실제 요소 높이 기준으로 배치한다.
+    아이콘 아래 40px, 문구 아래 40px 간격 유지.
+*/
+.simulation-content {
+    display: flex;
     flex-direction: column;
     align-items: center;
+
+    width: 372px;
+
+    flex: 0 0 auto;
 }
 
-/* Group79.png 아이콘 */
+/* 피그마 기준 80 × 65 */
 .simulation-icon {
-    width: 72px;
-    height: auto;
-    display: block;
+    width: 80px;
+    height: 65px;
 
-    margin-bottom: 28px;
+    object-fit: contain;
+    display: block;
 }
 
-/* 문구 */
+/* 아이콘 아래 40px */
 .simulation-text {
-    margin: 0;
+    width: 100%;
+    margin: 40px 0 0;
 
-    font-size: clamp(20px, 1.6vw, 25px);
+    font-size: 30px;
     font-weight: 700;
-    line-height: 1.5;
+    line-height: 1.4;
+    letter-spacing: 0;
 
     text-align: center;
-    color: #444444;
+    white-space: nowrap;
+
+    color: rgba(0, 0, 0, 0.75);
 }
 
 .simulation-text span {
-    color: #8B0000;
+    color: #a30d00;
 }
 
-/* 메뉴 버튼 2.png */
+/* 문구 실제 높이 아래 40px */
 .simulation-button {
-    margin-top: 32px;
-
-    padding: 0;
-    border: none;
-    background: transparent;
-
-    cursor: pointer;
+    width: 273px;
+    height: 80px;
+    margin-top: 40px;
 }
 
-.simulation-button img {
-    width: 252px;
+.simulation-button > button {
+    width: 100%;
     height: 80px;
-    object-fit: contain;
-    display: block;
 }
 
 .simulation-button:hover {

@@ -1,71 +1,22 @@
-.simulation-main-page {
-    position: relative;
-    width: 100vw;
-    height: 100vh;
-    overflow: hidden;
-    background-color: #ffffff;
-}
-
-.simulation-main-map {
-    position: absolute;
-    left: -34.5vw;
-    top: 29vh;
-    width: 104.2vw;
-    height: auto;
-    opacity: 0.45;
-    z-index: 1;
-    pointer-events: none;
-}
-
-.simulation-main-torn {
-    position: absolute;
-    left: 31.9vw;
-    top: 0;
-    width: 68.1vw;
-    height: 100vh;
-    object-fit: fill;
-    z-index: 2;
-    pointer-events: none;
-}
-
-.simulation-main-flag {
-    position: absolute;
-    left: 15.5vw;
-    top: 50.5vh;
-    width: 20vw;
-    height: auto;
-    transform: translate(-50%, -50%);
-    z-index: 3;
-    pointer-events: none;
-}
-
-.simulation-main-page .header {
-    z-index: 20;
-}
-
-/* 오른쪽 찢어진 화면 영역 */
 .simulation-right-panel {
     position: absolute;
-    left: 31.9vw;
-    top: 0;
-    width: 68.1vw;
-    height: 100vh;
-    z-index: 10;
 
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    left: 35.8vw;
+    top: 0;
+
+    width: 64.2vw;
+    height: 100vh;
+
+    padding-top: 25.3vh;
+    padding-left: calc(7.5vw + 20px);
 
     box-sizing: border-box;
+    z-index: 10;
 }
 
-/* 오른쪽 영역 안에서 가운데 정렬되는 콘텐츠 프레임 */
 .simulation-content-frame {
     width: 680px;
-    max-width: 85%;
-    box-sizing: border-box;
+    max-width: 100%;
 
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
+    box-sizing: border-box;
 }

@@ -1,81 +1,83 @@
 .simulation-count-box {
-    width: calc((100% - 40px) / 2);
+    width: 320px;
+    flex: 0 0 320px;
+
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+
     text-align: left;
 }
 
 .simulation-count-box label {
     display: block;
-    width: 100%;
-    margin-bottom: 18px;
-    text-align: left;
 
-    font-size: 21px;
-    font-weight: 700;
-    line-height: 1;
-    color: #333333;
+    width: 100%;
+    margin-bottom: 20px;
+
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 1.4;
+    color: rgba(0, 0, 0, 0.75);
+
+    text-align: left;
+    white-space: nowrap;
 }
 
 .simulation-slider-wrap {
     position: relative;
-    width: 100%;
+
+    width: 320px;
     height: 40px;
-    display: flex;
-    align-items: center;
 }
 
-.simulation-slider-wrap input[type='range'] {
-    -webkit-appearance: none;
-    appearance: none;
-    width: 100%;
-    height: 3px;
-    background-color: #eeeeee;
+.simulation-slider-line {
+    position: absolute;
+
+    left: 0;
+    top: 50%;
+
+    width: 320px;
+    height: 4px;
+
+    transform: translateY(-50%);
+
     border-radius: 999px;
-    outline: none;
-    cursor: pointer;
-}
-
-.simulation-slider-wrap input[type='range']::-webkit-slider-thumb {
-    -webkit-appearance: none;
-    appearance: none;
-    width: 34px;
-    height: 34px;
-    border-radius: 50%;
-    background: transparent;
-    border: none;
-    cursor: pointer;
-}
-
-.simulation-slider-wrap input[type='range']::-moz-range-thumb {
-    width: 34px;
-    height: 34px;
-    border-radius: 50%;
-    background: transparent;
-    border: none;
-    cursor: pointer;
+    background-color: #eeeeee;
 }
 
 .simulation-count-badge {
     position: absolute;
     top: 50%;
+
+    width: 40px;
+    height: 40px;
+    padding: 0;
+
     transform: translate(-50%, -50%);
-    pointer-events: none;
 
-    width: 36px;
-    height: 36px;
+    border: none;
     border-radius: 50%;
-
     background-color: #ffffff;
-    border: 1px solid #eeeeee;
     box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
 
     display: flex;
     align-items: center;
     justify-content: center;
 
-    font-size: 17px;
-    font-weight: 600;
-    color: #b8b8b8;
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 1.4;
+    color: rgba(0, 0, 0, 0.25);
+
+    cursor: pointer;
+    transition: transform 0.1s ease;
+}
+
+.simulation-count-badge:hover {
+    transform: translate(-50%, -50%) scale(1.04);
+}
+
+.simulation-count-badge:active {
+    transform: translate(-50%, -50%) scale(0.96);
 }

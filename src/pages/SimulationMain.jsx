@@ -1,24 +1,18 @@
 import './SimulationMain.css'
-import { Header } from '../components/header'
 import { useState } from 'react'
-import './SimulationMain.css'
+import { useNavigate } from 'react-router-dom'
 
+import { SimulationLayout } from '../components/simulation/SimulationLayout'
 import { SimulationInput } from '../components/simulation/SimulationInput'
 import { SimulationSummary } from '../components/simulation/SimulationSummary'
 import { SimulationDetail } from '../components/simulation/SimulationDetail'
 
-import map from '../assets/Map.png'
-import simulationFlag from '../assets/Simulation_Flag.png'
-import torn from '../assets/Group 209 1.png'
-import menuButton3 from '../assets/메뉴 버튼 3.png'
-import menuButton4 from '../assets/메뉴 버튼 4.png'
-import menuButton5 from '../assets/메뉴 버튼 5.png'
-import menuButton6 from '../assets/메뉴 버튼 6.png'
-
 export function SimulationMain() {
+    const navigate = useNavigate()
+
     const [majorCount, setMajorCount] = useState(0)
     const [extraCount, setExtraCount] = useState(0)
-    const [retakeInput, setRetakeInput] = useState('')
+    const [retakeCourses, setRetakeCourses] = useState([])
     const [targetGpa, setTargetGpa] = useState('')
 
     const [screen, setScreen] = useState('input')
@@ -36,7 +30,7 @@ export function SimulationMain() {
             score += gpa * 10
         }
 
-        if (retakeInput.trim() !== '') {
+        if (retakeCourses.length > 0) {
             score += 10
         }
 
@@ -44,9 +38,7 @@ export function SimulationMain() {
     }
 
     const handleStartSimulation = () => {
-        const result = calculateProbability()
-
-        setProbability(result)
+        setProbability(calculateProbability())
         setScreen('summary')
     }
 
@@ -55,17 +47,7 @@ export function SimulationMain() {
     }
 
     return (
-        <div className='simulation-main-page'>
-            <img className='simulation-main-map' src={map} alt='배경 지도' />
-            <img className='simulation-main-torn' src={torn} alt='찢어진 화면' />
-            <img
-                className='simulation-main-flag'
-                src={simulationFlag}
-                alt='졸업 시뮬레이션'
-            />
-
-            <Header />
-
+        <SimulationLayout>
             <div className='simulation-right-panel'>
                 <div className='simulation-content-frame'>
                     {screen === 'input' && (
@@ -74,12 +56,12 @@ export function SimulationMain() {
                             setMajorCount={setMajorCount}
                             extraCount={extraCount}
                             setExtraCount={setExtraCount}
-                            retakeInput={retakeInput}
-                            setRetakeInput={setRetakeInput}
+                            retakeCourses={retakeCourses}
+                            setRetakeCourses={setRetakeCourses}
                             targetGpa={targetGpa}
                             setTargetGpa={setTargetGpa}
                             onStartSimulation={handleStartSimulation}
-                            menuButton3={menuButton3}
+                            onGoToMyPage={() => navigate('/MyPage')}
                         />
                     )}
 
@@ -88,8 +70,6 @@ export function SimulationMain() {
                             probability={probability}
                             onReset={handleResetSimulation}
                             onDetail={() => setScreen('detail')}
-                            menuButton4={menuButton4}
-                            menuButton5={menuButton5}
                         />
                     )}
 
@@ -97,11 +77,10 @@ export function SimulationMain() {
                         <SimulationDetail
                             probability={probability}
                             onReset={handleResetSimulation}
-                            menuButton6={menuButton6}
                         />
                     )}
                 </div>
             </div>
-        </div>
+        </SimulationLayout>
     )
 }

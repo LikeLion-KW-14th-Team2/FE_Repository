@@ -1,35 +1,37 @@
 import './SimulationDetail.css'
+import { Btn } from '../Btn'
 
-function getProbabilityInfo(probability) {
-    if (probability < 30) {
-        return {
-            main: '#ff3333',
-            light: '#ffb2b2',
-        }
+import probabilityBarBase from '../../assets/Probability_Bar_Base.png'
+import probabilityBar20 from '../../assets/Probability_Bar_20.png'
+import probabilityBar40 from '../../assets/Probability_Bar_40.png'
+import probabilityBar60 from '../../assets/Probability_Bar_60.png'
+import probabilityBar80 from '../../assets/Probability_Bar_80.png'
+
+function getProbabilityBar(probability) {
+    const barImages = {
+        20: probabilityBar20,
+        40: probabilityBar40,
+        60: probabilityBar60,
+        80: probabilityBar80,
     }
 
-    if (probability < 60) {
-        return {
-            main: '#ff8a1f',
-            light: '#ffd0a0',
-        }
-    }
-
-    if (probability < 80) {
-        return {
-            main: '#ffd400',
-            light: '#fff0a0',
-        }
-    }
-
-    return {
-        main: '#34c95f',
-        light: '#bff1d0',
-    }
+    return barImages[probability] ?? probabilityBar20
 }
 
-export function SimulationDetail({ probability, onReset, menuButton6 }) {
-    const info = getProbabilityInfo(probability)
+function getProbabilityColor(probability) {
+    const colors = {
+        20: '#FF383C',
+        40: '#FF8D28',
+        60: '#FFCC00',
+        80: '#34C759',
+    }
+
+    return colors[probability] ?? '#FF383C'
+}
+
+export function SimulationDetail({ probability, onReset }) {
+    const barImage = getProbabilityBar(probability)
+    const probabilityColor = getProbabilityColor(probability)
 
     const resultItems = [
         {
@@ -60,59 +62,73 @@ export function SimulationDetail({ probability, onReset, menuButton6 }) {
 
     return (
         <div className='simulation-detail-area'>
-            <div className='simulation-detail-top'>
-                <h2 className='simulation-detail-title'>졸업 가능 확률</h2>
+            <div className='simulation-detail-content'>
+                <div className='simulation-detail-top'>
+                    <h2 className='simulation-detail-title'>
+                        졸업 가능 확률
+                    </h2>
 
-                <div className='simulation-detail-progress-row'>
-                    <div className='simulation-detail-progress'>
-                        <div
-                            className='simulation-detail-progress-fill'
-                            style={{
-                                width: `${probability}%`,
-                                background: `linear-gradient(90deg, ${info.light}, ${info.main})`,
-                            }}
-                        />
-                    </div>
+                    <div className='simulation-detail-progress-row'>
+                        <div className='simulation-detail-progress'>
+                            <img
+                                className='simulation-detail-progress-base'
+                                src={probabilityBarBase}
+                                alt=''
+                            />
 
-                    <span
-                        className='simulation-detail-percent'
-                        style={{ color: info.main }}
-                    >
-                        {probability}%
-                    </span>
-                </div>
-            </div>
-
-            <div className='simulation-detail-divider' />
-
-            <div className='simulation-detail-list'>
-                {resultItems.map((item) => (
-                    <div className='simulation-detail-item' key={item.title}>
-                        <div>
-                            <h3>{item.title}</h3>
-                            <p>{item.desc}</p>
+                            <img
+                                className='simulation-detail-progress-fill'
+                                src={barImage}
+                                alt=''
+                            />
                         </div>
 
                         <span
-                            className={
-                                item.done
-                                    ? 'simulation-status-badge done'
-                                    : 'simulation-status-badge undone'
-                            }
+                            className='simulation-detail-percent'
+                            style={{ color: probabilityColor }}
                         >
-                            {item.status}
+                            {probability}%
                         </span>
                     </div>
-                ))}
+                </div>
+
+                <div
+                    className='simulation-detail-divider'
+                    aria-hidden='true'
+                />
+
+                <div className='simulation-detail-list'>
+                    {resultItems.map((item) => (
+                        <div
+                            className='simulation-detail-item'
+                            key={item.title}
+                        >
+                            <div className='simulation-detail-item-copy'>
+                                <h3>{item.title}</h3>
+                                <p>{item.desc}</p>
+                            </div>
+
+                            <span
+                                className={
+                                    item.done
+                                        ? 'simulation-status-badge done'
+                                        : 'simulation-status-badge undone'
+                                }
+                            >
+                                {item.status}
+                            </span>
+                        </div>
+                    ))}
+                </div>
             </div>
 
-            <button
-                type='button'
-                className='simulation-detail-reset-button'
-                onClick={onReset}
-            >
-                <img src={menuButton6} alt='시뮬레이션 다시 입력하기' />
-            </button>
+            <div className='simulation-detail-reset-button'>
+                <Btn
+                    text='시뮬레이션 다시 입력하기'
+                    num='1'
+                    onClick={onReset}
+                />
+            </div>
         </div>
     )
 }

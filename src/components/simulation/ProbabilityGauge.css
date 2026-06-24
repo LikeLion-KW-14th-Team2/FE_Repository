@@ -1,37 +1,51 @@
 .simulation-gauge-box {
     position: relative;
-    width: 520px;
-    height: 320px;
 
-    margin: 8px auto 16px auto;
+    width: 500px;
+    height: 500px;
+    margin: 0 auto;
 }
 
-.simulation-gauge-svg {
-    width: 520px;
-    height: 320px;
+.simulation-gauge-image {
     display: block;
+
+    width: 500px;
+    height: 500px;
+
+    object-fit: contain;
 }
 
-.simulation-gauge-track {
-    stroke: #eeeeee;
-    stroke-width: 58;
-    stroke-linecap: round;
-    fill: none;
-}
-
-.simulation-gauge-progress {
-    stroke-width: 58;
-    stroke-linecap: round;
-    fill: none;
-}
-
+/* 게이지 중앙 확률 */
 .simulation-gauge-percent {
     position: absolute;
-    left: 50%;
-    top: 60%;
-    transform: translate(-50%, -50%);
 
-    font-size: 64px;
-    font-weight: 800;
-    line-height: 1;
+    top: 50%;
+    left: 0;
+
+    width: 100%;
+
+    transform: translateY(-50%);
+
+    font-size: 80px;
+    font-weight: 600;
+    line-height: 1.4;
+    letter-spacing: 0;
+
+    text-align: center;
+}
+
+.gauge-level-20 .simulation-gauge-percent {
+    color: #ff383c;
+}
+
+.gauge-level-40 .simulation-gauge-percent {
+    color: #ff8d28;
+}
+
+.gauge-level-60 .simulation-gauge-percent {
+    color: #ffcc00;
+}
+
+.gauge-level-80 .simulation-gauge-percent {
+    color: #34c759;
 }

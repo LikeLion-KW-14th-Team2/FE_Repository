@@ -1,130 +1,244 @@
 .simulation-detail-area {
-    width: 420px;
-    text-align: left;
+    /*
+        피그마 원본 기준: 1440 × 1024
+        화면 높이에 맞춰 카드·내용·버튼을 하나의 비율로 축소한다.
+    */
+    --detail-scale: calc(100vh / 1024px);
 
-    align-self: center;
-    margin-top: -18px;
+    position: relative;
+
+    width: 570px;
+    height: 690px;
+    padding: 60px;
+
+    box-sizing: border-box;
+
+    /*
+        원본 피그마에서 카드 시작점: y = 150px
+    */
+    margin: calc(14.6484375vh - 25.3vh) auto 0;
+
+    transform: scale(var(--detail-scale));
+    transform-origin: top center;
+
+    text-align: left;
 }
 
+.simulation-detail-content {
+    width: 450px;
+    height: 570px;
+
+    display: flex;
+    flex-direction: column;
+}
+
+/* 졸업 가능 확률 영역: 450 × 90 */
 .simulation-detail-top {
-    width: 100%;
+    width: 450px;
+    height: 90px;
+    flex: 0 0 90px;
 }
 
 .simulation-detail-title {
-    margin: 0 0 22px 0;
+    margin: 0 0 16px;
 
-    font-size: 22px;
-    font-weight: 800;
-    color: #444444;
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 1.4;
+    letter-spacing: 0;
+
+    color: rgba(0, 0, 0, 0.75);
 }
 
+/* 바 370px + 간격 20px + 퍼센트 영역 60px = 450px */
 .simulation-detail-progress-row {
     display: flex;
     align-items: center;
-    gap: 24px;
+
+    width: 450px;
+    height: 40px;
+    gap: 20px;
 }
 
 .simulation-detail-progress {
-    width: 330px;
-    height: 36px;
-    border-radius: 999px;
-    background-color: #eeeeee;
-    overflow: hidden;
+    position: relative;
+
+    width: 370px;
+    height: 40px;
+    flex: 0 0 370px;
+}
+
+.simulation-detail-progress-base,
+.simulation-detail-progress-fill {
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    height: 40px;
+
+    display: block;
+}
+
+.simulation-detail-progress-base {
+    width: 370px;
 }
 
 .simulation-detail-progress-fill {
-    height: 100%;
-    border-radius: 999px;
+    width: auto;
 }
 
 .simulation-detail-percent {
-    font-size: 22px;
-    font-weight: 800;
+    width: 60px;
+    height: 40px;
+    flex: 0 0 60px;
+
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 1.4;
+    letter-spacing: 0;
+
+    text-align: right;
 }
 
+/*
+    확률 영역과 목록 사이 전체 120px.
+    중앙 60px 지점에 실제 구분선을 배치한다.
+*/
 .simulation-detail-divider {
+    position: relative;
+
+    width: 450px;
+    height: 120px;
+    flex: 0 0 120px;
+}
+
+.simulation-detail-divider::after {
+    content: '';
+
+    position: absolute;
+
+    top: 60px;
+    left: 0;
+
     width: 100%;
     height: 1px;
+
     background-color: #eeeeee;
-    margin: 52px 0 44px 0;
 }
 
+/* 목록 전체: 450 × 360 */
 .simulation-detail-list {
+    width: 450px;
+    height: 360px;
+    flex: 0 0 360px;
+
     display: flex;
     flex-direction: column;
-    gap: 32px;
+
+    gap: 40px;
 }
 
+/*
+    한 행:
+    텍스트 250px
+    텍스트와 상태 사이 여백 120px
+    상태 뱃지 80px
+*/
 .simulation-detail-item {
-    display: flex;
-    justify-content: space-between;
+    width: 450px;
+    height: 60px;
+    flex: 0 0 60px;
+
+    display: grid;
+    grid-template-columns: 250px 120px 80px;
     align-items: center;
 }
 
-.simulation-detail-item h3 {
-    margin: 0 0 8px 0;
+.simulation-detail-item-copy {
+    width: 250px;
+    height: 60px;
 
-    font-size: 21px;
-    font-weight: 800;
-    color: #444444;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.simulation-detail-item h3 {
+    margin: 0;
+
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 1.2;
+    letter-spacing: 0;
+
+    color: rgba(0, 0, 0, 0.75);
 }
 
 .simulation-detail-item p {
     margin: 0;
 
-    font-size: 17px;
-    font-weight: 600;
-    color: #b5b5b5;
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 1.4;
+    letter-spacing: 0;
+
+    color: rgba(0, 0, 0, 0.25);
 }
 
+/* 상태 뱃지: 80 × 40, top 10px */
 .simulation-status-badge {
-    min-width: 70px;
-    height: 36px;
-    padding: 0 12px;
-    border-radius: 9px;
+    grid-column: 3;
+
+    width: 80px;
+    height: 40px;
+
+    padding: 10px 15px;
+
+    box-sizing: border-box;
 
     display: flex;
     align-items: center;
     justify-content: center;
 
-    font-size: 16px;
-    font-weight: 800;
+    border-radius: 10px;
+
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 1.4;
+    letter-spacing: 0;
+    white-space: nowrap;
 }
 
 .simulation-status-badge.done {
-    color: #138dff;
-    background-color: #e0f0ff;
+    color: #0088ff;
+    background-color: rgba(0, 136, 255, 0.1);
 }
 
 .simulation-status-badge.undone {
-    color: #ff3333;
-    background-color: #ffe8ec;
+    color: #ff383c;
+    background-color: rgba(255, 56, 60, 0.1);
 }
 
+/*
+    바깥 570 × 690 영역 하단에서 24px 아래.
+    내부 콘텐츠 하단 기준으로는 60 + 24 = 84px 아래.
+*/
 .simulation-detail-reset-button {
-    width: 400px;
-    height: 70px;
-    padding: 0;
-    margin-top: 60px;
+    position: absolute;
 
-    border: none;
-    background: transparent;
+    top: calc(100% + 24px);
+    left: 60px;
 
-    cursor: pointer;
-    transition: transform 0.1s;
+    width: 450px;
+    height: 80px;
 }
 
-.simulation-detail-reset-button img {
+.simulation-detail-reset-button > button {
     width: 100%;
     height: 100%;
-    object-fit: fill;
-    display: block;
-}
-
-.simulation-detail-reset-button:hover {
-    transform: translateY(-1px);
-}
-
-.simulation-detail-reset-button:active {
-    transform: translateY(1px);
 }

@@ -1,0 +1,77 @@
+.simulation-layout {
+    position: relative;
+
+    width: 100vw;
+    height: 100vh;
+
+    overflow: hidden;
+    background-color: #ffffff;
+}
+
+/*
+    시뮬레이션 피그마 기준 지도
+    x = -831px
+    y = 220px
+    w = 1500px
+    h = 1069.7px
+    기준 프레임 = 1440 x 1024
+
+    ConditionLayout과 동일하게
+    화면 높이 기준으로 확대
+*/
+.simulation-layout-map {
+    position: absolute;
+
+    left: -77.09vh;
+    top: 21.48vh;
+
+    width: auto;
+    height: 104.46vh;
+
+    opacity: 0.45;
+    z-index: 1;
+
+    pointer-events: none;
+}
+
+/*
+    Group 209 1.png 원본: 1130 x 1024
+
+    이미지 왼쪽에 투명/그림자 영역이 포함되어 있어서
+    실제 찢어진 경계보다 이미지 시작점을 더 왼쪽에 둬야 함.
+*/
+.simulation-layout-torn {
+    position: absolute;
+
+    left: 21.53vw;
+    top: 0;
+
+    width: 78.47vw;
+    height: 100vh;
+
+    object-fit: fill;
+
+    z-index: 2;
+    pointer-events: none;
+}
+
+/* 공통 졸업 시뮬레이션 깃발 */
+.simulation-layout-flag {
+    position: absolute;
+
+    left: 16.6vw;
+    top: 50.4vh;
+
+    width: 20vw;
+    height: auto;
+
+    transform: translate(-50%, -50%);
+
+    z-index: 3;
+    pointer-events: none;
+}
+
+/* Header */
+.simulation-layout .header {
+    z-index: 20;
+}

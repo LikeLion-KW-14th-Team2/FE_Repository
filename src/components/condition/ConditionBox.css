@@ -1,0 +1,74 @@
+.condition-box {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    width: 100%;
+}
+
+/* 피그마 기준 530 × 31 */
+.condition-box-tabs {
+    display: flex;
+    align-items: center;
+
+    width: 66.25%;
+    height: 31px;
+
+    gap: 40px;
+    margin: 0 0 6.7383vh 0;
+}
+
+/* 학번 탭 */
+.condition-box-tab {
+    position: relative;
+
+    padding: 0;
+
+    border: none;
+    background: transparent;
+
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 1.4;
+    letter-spacing: 0;
+
+    color: rgba(0, 0, 0, 0.25);
+
+    white-space: nowrap;
+    cursor: pointer;
+}
+
+.condition-box-tab.active {
+    color: rgba(0, 0, 0, 0.75);
+}
+
+.condition-box-tab.active::after {
+    content: '';
+
+    position: absolute;
+
+    left: 0;
+    bottom: 0;
+
+    width: 100%;
+    height: 1.5px;
+
+    background-color: rgba(0, 0, 0, 0.75);
+}
+
+/*
+    피그마 기준:
+    x = 580
+    y = 300
+    w = 800
+    h = 793
+*/
+.condition-box-result {
+    width: 100%;
+    height: 77.4414vh;
+
+    border-radius: 8px;
+    background-color: #f4f4f4;
+
+    box-sizing: border-box;
+}
