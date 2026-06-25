@@ -13,6 +13,12 @@ export function Header() {
     const [isHomeHover, setIsHomeHover] = useState(false);
     const [isLogoutHover, setIsLogoutHover] = useState(false);
 
+    const handleLogout = () => {
+        localStorage.removeItem('klasSession');
+        sessionStorage.removeItem('klasSession');
+
+        window.location.replace('/');
+    }
 
     return (
         <>
@@ -21,7 +27,7 @@ export function Header() {
                      alt="로그아웃"
                      onMouseEnter={() => setIsLogoutHover(true)}
                      onMouseLeave={() => setIsLogoutHover(false)}
-                     onClick={() => navigate('/')}
+                     onClick={handleLogout}
                 />
                 <img className='homeImg' src={isHomeHover ? homeHover : home}
                      alt="홈으로 나가기"
