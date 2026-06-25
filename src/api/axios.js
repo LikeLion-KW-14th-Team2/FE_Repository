@@ -1,9 +1,9 @@
 import axios from 'axios';
 
-const BACKEND_URL = import.meta.env.VITE_API_BASE_URL || 'https://kwu-graduation.duckdns.org'
+const BACKEND_URL = import.meta.env.VITE_API_BASE_URL
 
 const api = axios.create({
-  baseURL: import.meta.env.PROD ? BACKEND_URL : '',
+  baseURL: BACKEND_URL,
   timeout: 5000,
   headers: {
     'Content-Type': 'application/json',
