@@ -34,7 +34,6 @@ export function SimulationMain() {
             score += 10
         }
 
-        // 계산 점수를 가장 가까운 게이지 단계로 변환
         if (score < 30) return 20
         if (score < 50) return 40
         if (score < 70) return 60

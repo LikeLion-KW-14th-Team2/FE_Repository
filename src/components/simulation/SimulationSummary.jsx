@@ -11,7 +11,7 @@ export function SimulationSummary({
         <div className='simulation-result-area'>
             <div className='simulation-result-main'>
                 <h2 className='simulation-result-title'>
-                    홍길동 님의 졸업 가능 확률은
+                    박규리 님의 졸업 가능 확률은
                     <br />
                     다음과 같아요
                 </h2>

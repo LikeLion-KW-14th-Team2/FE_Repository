@@ -1,17 +1,11 @@
-import { useEffect, useState } from 'react'
-
 import './SimulationDetail.css'
 import { Btn } from '../Btn'
-import api from '../../api/axios'
 
 import probabilityBarBase from '../../assets/Probability_Bar_Base.png'
 import probabilityBar20 from '../../assets/Probability_Bar_20.png'
 import probabilityBar40 from '../../assets/Probability_Bar_40.png'
 import probabilityBar60 from '../../assets/Probability_Bar_60.png'
 import probabilityBar80 from '../../assets/Probability_Bar_80.png'
-
-const TOTAL_REQUIRED_CREDITS = 133
-const MAJOR_REQUIRED_CREDITS = 60
 
 function getProbabilityBar(probability) {
     const barImages = {
@@ -36,67 +30,21 @@ function getProbabilityColor(probability) {
 }
 
 export function SimulationDetail({ probability, onReset }) {
-    const [gradeSummary, setGradeSummary] = useState({
-        applyHakjum: null,
-        majorChidukHakjum: null,
-    })
-
-    useEffect(() => {
-        const fetchGradeSummary = async () => {
-            const klasSession = localStorage.getItem('klasSession')
-
-            if (!klasSession) {
-                console.error('klasSession 토큰이 없습니다.')
-                return
-            }
-
-            try {
-                const response = await api.get(
-                    '/api/klas/grades/summary',
-                    {
-                        headers: {
-                            'Klas-Cookie': klasSession,
-                        },
-                    }
-                )
-
-                setGradeSummary({
-                    applyHakjum: response.data.applyHakjum,
-                    majorChidukHakjum:
-                        response.data.majorChidukHakjum,
-                })
-            } catch (error) {
-                console.error(
-                    '학점 요약 조회에 실패했습니다.',
-                    error
-                )
-            }
-        }
-
-        fetchGradeSummary()
-    }, [])
-
     const barImage = getProbabilityBar(probability)
     const probabilityColor = getProbabilityColor(probability)
-
-    const totalCreditDone =
-        gradeSummary.applyHakjum >= TOTAL_REQUIRED_CREDITS
-
-    const majorRequiredDone =
-        gradeSummary.majorChidukHakjum >= MAJOR_REQUIRED_CREDITS
 
     const resultItems = [
         {
             title: '총 학점',
-            desc: `${gradeSummary.applyHakjum ?? '-'}학점 · 총 ${TOTAL_REQUIRED_CREDITS}학점`,
-            status: totalCreditDone ? '완료' : '미완료',
-            done: totalCreditDone,
+            desc: '124학점 · 총 133학점',
+            status: '미완료',
+            done: false,
         },
         {
             title: '전공 필수',
-            desc: `${gradeSummary.majorChidukHakjum ?? '-'}학점 · 총 ${MAJOR_REQUIRED_CREDITS}학점`,
-            status: majorRequiredDone ? '완료' : '미완료',
-            done: majorRequiredDone,
+            desc: '45학점 · 총 60학점',
+            status: '미완료',
+            done: false,
         },
         {
             title: '교양 필수',
