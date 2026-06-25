@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import logo from '../assets/Logo.png'
 import Map from '../assets/Map.png'
 import login from '../assets/Login_Landing.png'
@@ -15,6 +15,11 @@ export function Landing() {
 
     const navigate = useNavigate();
 
+    // 링크에 다시 접속하거나 새로 배포되어 첫 진입 시, 이전 로그인 세션 잔재를 청소합니다.
+    useEffect(() => {
+        localStorage.removeItem('klasSession');
+    }, []);
+
     const handleMapClick = () => {if(!isLoginStep) setIsLoginStep(true);};
 
     const handleLoginClick = () => {setIsModalOpen(true);};
@@ -30,20 +35,19 @@ export function Landing() {
         }
 
         try {
-            // 백엔드 API에 로그인 요청 (이전 세션 간섭 방지 포함)
+            // 백엔드 API에 로그인 요청
             const response = await api.post('/api/klas/auth/login', {
                 studentId: id,
                 password: pw
-            }, {
-                withCredentials: false 
             });
 
-            // [조건 1 & 2 & 3] API 결과 분석
-            if (response.data && response.data.success === true) {
+            // success 플래그가 정확히 true(보수적으로 문자열 'true' 포함)이고, cookie 값이 존재하는지 엄격하게 검증
+            const isSuccess = response.data && (response.data.success === true || response.data.success === 'true');
+            const hasCookie = response.data && response.data.cookie;
+
+            if (isSuccess && hasCookie) {
                 // 로그인 성공 시 세션 저장
-                if (response.data.cookie) {
-                    localStorage.setItem('klasSession', response.data.cookie);
-                }
+                localStorage.setItem('klasSession', response.data.cookie);
                 
                 // 최초 로그인 여부 기록장 가져오기
                 const visitedUsers = JSON.parse(localStorage.getItem('visitedUsers') || '{}');
@@ -63,13 +67,13 @@ export function Landing() {
                 }
 
             } else {
-                // 3. 로그인 실패 시 (API에서 success가 true가 아님)
+                // success가 true가 아니거나 cookie가 없으면 무조건 로그인 실패 처리
                 handleLoginFailure();
             }
             
         } catch (error) {
             console.error("로그인 중 에러 발생:", error);
-            // 통신 에러나 서버 에러 발생 시에도 실패 처리
+            // 통신 에러나 서버 에러(400, 401, 500 등) 발생 시에도 실패 처리
             handleLoginFailure();
         }
     };

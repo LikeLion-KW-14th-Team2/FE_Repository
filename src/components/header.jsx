@@ -15,7 +15,7 @@ export function Header() {
 
     const handleLogout = () => {
         localStorage.removeItem('klasSession');
-        sessionStorage.removeItem('klasSession');
+        localStorage.removeItem('klasSession');
 
         window.location.replace('/');
     }
