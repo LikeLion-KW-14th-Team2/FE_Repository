@@ -5,6 +5,8 @@ import login from '../assets/Login_Landing.png'
 import { Btn } from '../components/Btn';
 import { useNavigate } from 'react-router-dom';
 
+import api from '../api/axios';
+
 export function Landing() {
     const [isHovered, setIsHovered] = useState(false);
     const [isLoginStep, setIsLoginStep] = useState(false);
@@ -21,40 +23,69 @@ export function Landing() {
     const [pw, setPw] = useState('');
 
     const handleLogin = async () => {
-        // if (!id || !pw) {
-        //     setIsFailModalOpen(true);
-        //     setIsModalOpen(false);
-        //     return;
-        // }
-
-        try {
-            // const response = await fetch('/api/login', {
-            //     method: 'POST',
-            //     headers: {
-            //         'Content-Type': 'application/json'
-            //     },
-            //     body: JSON.stringify({
-            //         userId: id,
-            //         userpwd: pw
-            //     })
-            // });
-
-            // if (!response.ok) {
-            //     setIsFailModalOpen(true);
-            //     setIsModalOpen(false);
-            //     return;
-            // }
-
-            // 일반 로그인 시 홈으로 이동
-            // 최초 로그인 시 가이드 이동 구현 필요
-            navigate('/Guide'); 
-            
-        } catch (error) {
-            console.error("로그인 중 에러 발생:", error);
+        if (!id || !pw) {
             setIsFailModalOpen(true);
             setIsModalOpen(false);
             return;
         }
+
+        try {
+            // 백엔드 API에 로그인 요청 (이전 세션 간섭 방지 포함)
+            const response = await api.post('/api/klas/auth/login', {
+                studentId: id,
+                password: pw
+            }, {
+                withCredentials: false 
+            });
+
+            // [조건 1 & 2 & 3] API 결과 분석
+            if (response.data && response.data.success === true) {
+                // 로그인 성공 시 세션 저장
+                if (response.data.cookie) {
+                    localStorage.setItem('klasSession', response.data.cookie);
+                }
+                
+                // 최초 로그인 여부 기록장 가져오기
+                const visitedUsers = JSON.parse(localStorage.getItem('visitedUsers') || '{}');
+                
+                // 1. 최초 로그인 시 (visitedUsers에 이 학번 기록이 없는 경우)
+                if (!visitedUsers[id]) {
+                    visitedUsers[id] = true; // 방문 기록 남기기
+                    localStorage.setItem('visitedUsers', JSON.stringify(visitedUsers));
+                    
+                    resetLoginState();
+                    navigate('/Guide'); // 가이드로 이동
+                } 
+                // 2. 재 로그인 시 (이미 방문 기록이 있는 경우)
+                else {
+                    resetLoginState();
+                    navigate('/Home'); // 홈으로 이동
+                }
+
+            } else {
+                // 3. 로그인 실패 시 (API에서 success가 true가 아님)
+                handleLoginFailure();
+            }
+            
+        } catch (error) {
+            console.error("로그인 중 에러 발생:", error);
+            // 통신 에러나 서버 에러 발생 시에도 실패 처리
+            handleLoginFailure();
+        }
+    };
+
+    // 로그인 실패 공통 처리 함수
+    const handleLoginFailure = () => {
+        setIsFailModalOpen(true);
+        setIsModalOpen(false);
+        setId(''); // 입력창 비우기
+        setPw('');
+    };
+
+    const resetLoginState = () => {
+        setId('');
+        setPw('');
+        setIsModalOpen(false);
     };
 
     const handleFindPw = () => {
