@@ -19,13 +19,11 @@ export function Guide() {
   const handleStart = () => setStep(1)
 
   const handlePrev = () => {
-    // 가이드1에서 이전으로 가면 랜딩 화면(step 0)으로 돌아감
     setStep((prev) => Math.max(0, prev - 1))
   }
 
   const handleNext = () => {
     if (step >= totalSteps) {
-      // 마지막 가이드5에서 다음으로 넘기면 가이드를 끝내고 홈(지도)으로 이동
       navigate('/Home')
       return
     }
@@ -40,16 +38,18 @@ export function Guide() {
 
       {currentStep && (
         <div className="guide-slide-wrapper">
+          {/* 💡 수정: GuideMapSlide 컴포넌트에 현재 step 상태값을 Props로 전달합니다. */}
           {currentStep.type === 'map' && (
             <GuideMapSlide
               points={MAP_POINTS}
               interactive={currentStep.interactive}
               activePointId={currentStep.activePointId}
+              step={step} 
             />
           )}
 
           {currentStep.type === 'card' && (
-            <GuideCardSlide cards={currentStep.cards} />
+            <GuideCardSlide cards={currentStep.cards} step={step} />
           )}
 
           <GuideCaptionBar

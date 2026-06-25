@@ -88,7 +88,7 @@ export const GUIDE_STEPS = [
   },
   {
     id: 2,
-    type: 'map',
+    type: 'card',
     cards: UNI_CARD_PREVIEW,
     caption: [
       { text: '학점에 따라 외형이 바뀌는 ' },

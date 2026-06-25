@@ -66,3 +66,23 @@
     transform: translateY(0);
   }
 }
+
+.guide-map-point.guide-map-point--static-active .guide-map-point-label {
+  font-family: 'Pretendard Variable', 'Pretendard', sans-serif;
+  font-weight: 700;
+  font-size: 25px;
+  line-height: 140%;
+  letter-spacing: 0em;
+  font-style: normal;
+
+  color: #890b00;
+  z-index: 999;
+  transform: translateY(-18px);
+
+  padding: 0px 25px;
+  white-space: nowrap;
+  display: inline-block;
+  
+  /* 텍스트 박스 정렬 보정 */
+  box-sizing: border-box;
+}

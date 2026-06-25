@@ -8,10 +8,10 @@ export function GuideMapPoint({ point, mode = 'plain', isParentHovered, onFlagMo
   return (
     <div
       className={`guide-map-point guide-map-point--${mode}`}
-      style={{ top: point.top, left: point.left }}
-      onMouseEnter={() => isInteractive && onFlagMouseEnter()}
-      onMouseLeave={() => isInteractive && onFlagMouseLeave()}
-    >
+        style={{ top: point.top, left: point.left }}
+        onMouseEnter={() => isInteractive && onFlagMouseEnter()}
+        onMouseLeave={() => isInteractive && onFlagMouseLeave()}
+      >
       <div className="guide-map-point-hitzone" />
         {showFlagLayout && (
           <>

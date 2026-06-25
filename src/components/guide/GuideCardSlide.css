@@ -1,14 +1,70 @@
-.guide-card-slide {
+.guide-card-slide-container {
   position: absolute;
   inset: 0;
- 
+  
   display: flex;
   align-items: center;
   justify-content: center;
 }
+
+.guide-map-wrapper {
+  position: relative;
+  height: 95vh;
+  width: auto;
+  aspect-ratio: 1440 / 1024;
+}
  
-.guide-card-stage {
+.guide-map-bg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.guide-cards-overlap-wrapper {
+  position: absolute;
+  inset: 0;
+  z-index: 10;
+  
   display: flex;
+  justify-content: center;
   align-items: center;
-  gap: 24px;
+}
+
+.guide-card-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  filter: drop-shadow(0px 15px 35px rgba(0, 0, 0, 0.22));
+  transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.left-card {
+  margin-right: -100px;
+  z-index: 2;
+}
+
+.right-card {
+  z-index: 1;
+}
+
+.guide-single-card-wrapper {
+  position: absolute;
+  inset: 0;
+  z-index: 12;
+  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.single-card {
+  transform: rotate(-10deg);
+  filter: drop-shadow(0px 20px 50px rgba(0, 0, 0, 0.28));
+}
+
+.guide-card-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 24px;
 }
