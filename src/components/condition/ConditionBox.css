@@ -4,9 +4,18 @@
   align-items: flex-start;
 
   width: 100%;
+  height: 100%;
+  min-height: 0;
 }
 
-/* 학번 탭 */
+/* ================= 학번 및 학부 선택 ================= */
+.condition-box-filters {
+  width: 100%;
+
+  flex: 0 0 auto;
+  margin: 0 0 4vh 0;
+}
+
 .condition-box-tabs {
   display: flex;
   align-items: center;
@@ -15,7 +24,7 @@
   height: 31px;
 
   gap: 40px;
-  margin: 0 0 6.7383vh 0;
+  margin: 0 0 18px 0;
 }
 
 .condition-box-tab {
@@ -61,27 +70,171 @@
   background-color: rgba(0, 0, 0, 0.75);
 }
 
-/* 졸업요건 박스 */
+.condition-department-select {
+  display: flex;
+  align-items: center;
+
+  gap: 16px;
+}
+
+.condition-department-select p {
+  margin: 0;
+
+  font-size: 18px;
+  font-weight: 700;
+  color: rgba(0, 0, 0, 0.75);
+}
+
+.condition-department-tabs {
+  display: flex;
+  flex-wrap: wrap;
+
+  gap: 10px;
+}
+
+.condition-department-tab {
+  padding: 9px 13px;
+  border: 1px solid rgba(0, 0, 0, 0.14);
+  border-radius: 5px;
+
+  background-color: #ffffff;
+  color: rgba(0, 0, 0, 0.5);
+
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.condition-department-tab.active {
+  border-color: #a30d00;
+
+  background-color: #a30d00;
+  color: #ffffff;
+}
+
+/* ================= 졸업요건 조회 ================= */
 .condition-box-result {
   width: 100%;
-  height: 77.4414vh;
 
-  border-radius: 8px;
+  flex: 1;
+  min-height: 0;
+
+  padding: 0;
   box-sizing: border-box;
+
+  overflow-y: auto;
+
+  background-color: transparent;
 }
 
-.condition-box-result--20-23 {
-  background-color: rgba(0, 0, 0, 0.5);
+.condition-message {
+  margin: 0;
+
+  color: rgba(0, 0, 0, 0.75);
+  font-size: 20px;
+  text-align: center;
 }
 
-.condition-box-result--24 {
-  background-color: rgba(0, 0, 0, 0.4);
+/* ================= 졸업요건 문서 ================= */
+.condition-document {
+  min-height: 100%;
+
+  padding: 38px 44px;
+  border-radius: 6px;
+  box-sizing: border-box;
+
+  background-color: #ffffff;
+  color: rgba(0, 0, 0, 0.75);
 }
 
-.condition-box-result--25 {
-  background-color: rgba(0, 0, 0, 0.3);
+.condition-document-header {
+  padding-bottom: 22px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.12);
 }
 
-.condition-box-result--26 {
-  background-color: rgba(0, 0, 0, 0.2);
+.condition-document-header p {
+  margin: 0 0 8px;
+
+  color: #a30d00;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.condition-document-header h2 {
+  margin: 0 0 10px;
+
+  font-size: 32px;
+  font-weight: 700;
+}
+
+.condition-document-header span {
+  font-size: 17px;
+  color: rgba(0, 0, 0, 0.5);
+}
+
+/* ================= 졸업요건 내용 ================= */
+.condition-credit-summary {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+
+  gap: 14px;
+  margin: 26px 0;
+}
+
+.condition-credit-card {
+  display: flex;
+  flex-direction: column;
+
+  gap: 8px;
+  padding: 18px;
+  border-radius: 6px;
+
+  background-color: #f5f5f5;
+}
+
+.condition-credit-card span {
+  font-size: 15px;
+  color: rgba(0, 0, 0, 0.5);
+}
+
+.condition-credit-card strong {
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.condition-document-section {
+  padding: 22px 0;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.condition-document-section h3 {
+  margin: 0 0 12px;
+
+  font-size: 19px;
+  font-weight: 700;
+}
+
+.condition-section-text {
+  margin: 0 0 12px;
+
+  font-size: 15px;
+  color: rgba(0, 0, 0, 0.55);
+}
+
+.condition-document-section ul {
+  display: flex;
+  flex-wrap: wrap;
+
+  gap: 9px;
+  margin: 0;
+  padding: 0;
+
+  list-style: none;
+}
+
+.condition-document-section li {
+  padding: 8px 11px;
+  border-radius: 4px;
+
+  background-color: #f4f4f4;
+  font-size: 15px;
 }
